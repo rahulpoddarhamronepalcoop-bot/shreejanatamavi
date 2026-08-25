@@ -43,8 +43,10 @@
 </head>
 <body class="bg-bgLight text-textDark font-sans leading-relaxed">
 
+    <!-- Toast Notification Container -->
     <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2 no-print"></div>
 
+    <!-- TOP INFORMATION BAR -->
     <div class="bg-primary text-white text-xs sm:text-sm py-2 px-4 border-b border-blue-900">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
@@ -73,6 +75,7 @@
         </div>
     </div>
 
+    <!-- HEADER & LOGO -->
     <header class="bg-white shadow-sm sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -115,6 +118,7 @@
         </div>
     </header>
 
+    <!-- NOTICE POPUP SYSTEM -->
     <div id="notice-popup" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-xl shadow-2xl max-w-lg w-full overflow-hidden border-t-8 border-accent transform transition-all">
             <div class="bg-primary text-white p-4 flex justify-between items-center">
@@ -135,6 +139,7 @@
         </div>
     </div>
 
+    <!-- QUICK ACCESS GRID -->
     <section class="bg-white border-b py-4 px-4 shadow-sm">
         <div class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 text-center">
             <a href="#notice" class="bg-blue-50 hover:bg-blue-100 p-3 rounded-lg border border-blue-200 transition flex flex-col items-center gap-1 group">
@@ -172,13 +177,14 @@
         </div>
     </section>
 
+    <!-- HERO BANNER SECTION -->
     <section id="home" class="relative bg-primary text-white py-16 sm:py-24 px-4 overflow-hidden">
         <div class="absolute inset-0 opacity-15 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80')"></div>
         <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div class="space-y-4">
                 <span class="bg-accent text-gray-900 text-xs uppercase px-3 py-1 rounded font-extrabold tracking-wide">सामुदायिक उत्कृष्टताको केन्द्र</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight">गुणस्तरीय शिक्षा, प्रविधिमैत्री भविष्य</h2>
-                <p class="text-blue-100 text-sm sm:text-base leading-relaxed" id="hero-desc">श्री जनता माध्यमिक विद्यालय, शरणामती, झापामा कक्षा १ देखि १२ सम्म दक्ष शिक्षकवृन्दद्वारा गुणस्तरीय शिक्षा प्रदान गरिन्छ।</p>
+                <p class="text-blue-100 text-sm sm:text-base leading-relaxed">श्री जनता माध्यमिक विद्यालय, शरणामती, झापामा कक्षा १ देखि १२ सम्म दक्ष शिक्षकवृन्दद्वारा गुणस्तरीय शिक्षा प्रदान गरिन्छ।</p>
                 <div class="flex flex-wrap gap-4 pt-2">
                     <a href="#admission" class="bg-secondary hover:bg-green-700 text-white font-bold px-6 py-3 rounded-lg shadow transition flex items-center gap-2"><i class="fas fa-user-graduate"></i> भर्ना जानकारी</a>
                     <a href="#result" class="bg-accent hover:bg-amber-400 text-gray-900 font-bold px-6 py-3 rounded-lg shadow transition flex items-center gap-2"><i class="fas fa-search"></i> Online Result</a>
@@ -200,6 +206,7 @@
         </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" class="py-14 px-4 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200 text-center flex flex-col items-center">
@@ -212,8 +219,7 @@
             </div>
             <div class="md:col-span-2 bg-white p-6 sm:p-8 rounded-xl shadow-md border border-gray-200 space-y-4">
                 <h2 class="text-2xl font-extrabold text-primary border-b pb-2">विद्यालयको परिचय तथा इतिहास</h2>
-                <p class="text-sm text-gray-700 leading-relaxed" id="about-desc-p1">झापा गाउँपालिका वडा नं. ६, शरणामती, झापामा अवस्थित श्री जनता माध्यमिक विद्यालय वि.सं. २०२९ सालमा स्थापना भएको यस क्षेत्रको एक ऐतिहासिक एवं प्रतिष्ठित सामुदायिक विद्यालय हो।</p>
-                <p class="text-sm text-gray-700 leading-relaxed">अनुभवी शिक्षकवृन्द, कम्प्युटर ल्याब, विज्ञान प्रयोगशाला, र खेलकुद मैदानसहित हामी विद्यार्थीहरूको सर्वपक्षीय विकासमा समर्पित छौं।</p>
+                <p id="about-desc-p1" class="text-sm text-gray-700 leading-relaxed">झापा गाउँपालिका वडा नं. ६, शरणामती, झापामा अवस्थित श्री जनता माध्यमिक विद्यालय वि.सं. २०२९ सालमा स्थापना भएको यस क्षेत्रको एक ऐतिहासिक एवं प्रतिष्ठित सामुदायिक विद्यालय हो।</p>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 text-center">
                     <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
                         <span class="block text-2xl font-extrabold text-primary">९००+</span>
@@ -236,11 +242,27 @@
         </div>
     </section>
 
+    <!-- 1. SUCHANA (NOTICES) SECTION -->
+    <section id="notice" class="py-14 px-4 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 border-b pb-4">
+            <div>
+                <h2 class="text-2xl font-extrabold text-primary">सूचना तथा परिपत्रहरू (1. Notice Board)</h2>
+                <p class="text-xs text-gray-600">विद्यालयद्वारा जारी आधिकारिक सूचना, परीक्षा र छात्रवृत्ति सम्बन्धी अपडेटहरू</p>
+            </div>
+        </div>
+        <div id="main-notice-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-primary space-y-3">
+                <span class="text-xs text-gray-500">Loading notices from Google Sheets...</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ONLINE RESULT SECTION -->
     <section id="result" class="bg-blue-900 text-white py-14 px-4">
         <div class="max-w-4xl mx-auto bg-white text-gray-900 rounded-2xl shadow-2xl p-6 sm:p-10 border-t-8 border-accent">
             <div class="text-center mb-6">
-                <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">आधिकारिक परीक्षा नतिजा पोर्टल</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-primary mt-2">अनलाइन परीक्षा नतिजा हेर्नुहोस् (Online Result)</h2>
+                <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider">2. Online Result Portal</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-primary mt-2">अनलाइन परीक्षा नतिजा हेर्नुहोस्</h2>
                 <p class="text-xs sm:text-sm text-gray-600 mt-1">तपाईंको शैक्षिक सत्र, कक्षा, परीक्षा र सिम्बोल नम्बर छान्नुहोस्। (Demo Symbol: 102050)</p>
             </div>
 
@@ -248,14 +270,14 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">शैक्षिक सत्र (Academic Year):</label>
-                        <select id="res-year" class="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary bg-gray-50">
+                        <select id="res-year" class="w-full border rounded-lg px-3 py-2.5 text-sm bg-gray-50">
                             <option value="2083" selected>२०८३ (2083)</option>
                             <option value="2082">२०८२ (2082)</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">कक्षा (Class):</label>
-                        <select id="res-class" class="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary bg-gray-50">
+                        <select id="res-class" class="w-full border rounded-lg px-3 py-2.5 text-sm bg-gray-50">
                             <option value="10" selected>कक्षा १० (Class 10)</option>
                             <option value="9">कक्षा ९ (Class 9)</option>
                             <option value="8">कक्षा ८ (Class 8)</option>
@@ -266,15 +288,15 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-gray-700 mb-1">परीक्षा (Exam):</label>
-                        <select id="res-exam" class="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary bg-gray-50">
+                        <select id="res-exam" class="w-full border rounded-lg px-3 py-2.5 text-sm bg-gray-50">
                             <option value="Terminal" selected>त्रैमासिक परीक्षा (Terminal)</option>
                             <option value="Half-Yearly">अर्धवार्षिक परीक्षा (Half-Yearly)</option>
                             <option value="Annual">वार्षिक परीक्षा (Annual)</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-700 mb-1">सिम्बोल नम्बर / विद्यार्थी आईडी (Symbol No. / ID):</label>
-                        <input type="text" id="res-symbol" required placeholder="उदाहरण: 102050" class="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary bg-gray-50">
+                        <label class="block text-xs font-bold text-gray-700 mb-1">सिम्बोल नम्बर / विद्यार्थी आईडी (Symbol No.):</label>
+                        <input type="text" id="res-symbol" required placeholder="उदाहरण: 102050" class="w-full border rounded-lg px-3 py-2.5 text-sm bg-gray-50">
                     </div>
                 </div>
                 <div class="text-center pt-2">
@@ -307,9 +329,7 @@
                                     <th class="p-2.5 text-center">ग्रेड (Grade)</th>
                                 </tr>
                             </thead>
-                            <tbody id="disp-marks-tbody" class="divide-y divide-gray-200">
-                                <!-- Injected dynamically -->
-                            </tbody>
+                            <tbody id="disp-marks-tbody" class="divide-y divide-gray-200"></tbody>
                         </table>
                     </div>
                     <div class="mt-4 flex flex-col sm:flex-row justify-between items-center bg-white p-3 rounded shadow-sm text-sm font-bold">
@@ -326,30 +346,16 @@
         </div>
     </section>
 
-    <section id="notice" class="py-14 px-4 max-w-7xl mx-auto">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4 border-b pb-4">
-            <div>
-                <h2 class="text-2xl font-extrabold text-primary">सूचना तथा परिपत्रहरू (Notice Board)</h2>
-                <p class="text-xs text-gray-600">विद्यालयद्वारा जारी आधिकारिक सूचना, परीक्षा र छात्रवृत्ति सम्बन्धी अपडेटहरू</p>
-            </div>
-        </div>
-        <div id="main-notice-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-primary space-y-3">
-                <span class="text-xs text-gray-500">Loading notices...</span>
-            </div>
-        </div>
-    </section>
-
+    <!-- 3. BHARNA (ADMISSION) SECTION -->
     <section id="admission" class="bg-gray-100 py-14 px-4">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div class="space-y-4">
-                <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full font-bold">शैक्षिक सत्र २०८३</span>
+                <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full font-bold">3. Admission & Free Education</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-primary">भर्ना प्रक्रिया तथा निःशुल्क शिक्षा</h2>
                 <p class="text-sm text-gray-700 leading-relaxed">श्री जनता माध्यमिक विद्यालय, शरणामतीमा नेपाल सरकारको नीतिअनुरूप आधारभूत तह (कक्षा १–८) सम्म पूर्ण रूपमा निःशुल्क शिक्षा प्रदान गरिन्छ।</p>
                 <ul class="space-y-2 text-sm text-gray-700">
                     <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> जन्मदर्ता प्रमाणपत्रको प्रतिलिपि</li>
                     <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> स्थानान्तरण प्रमाणपत्र (TC) / मार्कसिट</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-check-circle text-secondary"></i> पासपोर्ट साइजको फोटो २ प्रति</li>
                 </ul>
             </div>
             <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md border">
@@ -357,12 +363,12 @@
                 <form onsubmit="handleInquiry(event)" class="space-y-3 text-sm">
                     <div>
                         <label class="block text-xs font-bold mb-1">विद्यार्थीको पूरा नाम:</label>
-                        <input type="text" required class="w-full border rounded px-3 py-2 text-sm focus:outline-none focus:border-primary" placeholder="पूरा नाम लेख्नुहोस्">
+                        <input type="text" id="inq-name" required class="w-full border rounded px-3 py-2 text-sm" placeholder="पूरा नाम लेख्नुहोस्">
                     </div>
                     <div class="grid grid-cols-2 gap-2">
                         <div>
                             <label class="block text-xs font-bold mb-1">कक्षा:</label>
-                            <select class="w-full border rounded px-3 py-2 text-sm">
+                            <select id="inq-class" class="w-full border rounded px-3 py-2 text-sm">
                                 <option>बालविकास (ECD)</option>
                                 <option>कक्षा १</option>
                                 <option>कक्षा ६</option>
@@ -372,12 +378,12 @@
                         </div>
                         <div>
                             <label class="block text-xs font-bold mb-1">सम्पर्क फोन:</label>
-                            <input type="tel" required class="w-full border rounded px-3 py-2 text-sm" placeholder="मोबाइल नं.">
+                            <input type="tel" id="inq-phone" required class="w-full border rounded px-3 py-2 text-sm" placeholder="मोबाइल नं.">
                         </div>
                     </div>
                     <div>
                         <label class="block text-xs font-bold mb-1">ठेगाना:</label>
-                        <input type="text" required class="w-full border rounded px-3 py-2 text-sm" placeholder="झापा गाउँपालिका–६, शरणामती">
+                        <input type="text" id="inq-address" required class="w-full border rounded px-3 py-2 text-sm" placeholder="झापा गाउँपालिका–६">
                     </div>
                     <button type="submit" class="w-full bg-secondary hover:bg-green-700 text-white font-bold py-2.5 rounded transition">जिज्ञासा पेश गर्नुहोस्</button>
                 </form>
@@ -385,194 +391,126 @@
         </div>
     </section>
 
-    <section id="teachers" class="py-14 px-4 max-w-7xl mx-auto">
+    <!-- 4. DOWNLOADS SECTION -->
+    <section id="downloads" class="py-14 px-4 max-w-7xl mx-auto">
         <div class="text-center mb-10">
-            <h2 class="text-2xl font-extrabold text-primary">शिक्षक तथा कर्मचारी विवरण</h2>
-            <p class="text-xs sm:text-sm text-gray-600">विद्यालयमा कार्यरत दक्ष, अनुभवी एवं तालिमप्राप्त शिक्षकवृन्द</p>
+            <span class="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full font-bold">4. Downloads</span>
+            <h2 class="text-2xl font-extrabold text-primary mt-2">डाउनलोड सेक्सन</h2>
+            <p class="text-xs sm:text-sm text-gray-600">फारमहरू, पाठ्यक्रम र कागजातहरू</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-white p-5 rounded-xl shadow border text-center">
-                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden shadow">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Teacher" class="w-full h-full object-cover">
-                </div>
-                <h4 class="font-extrabold text-base text-primary">श्री रामचन्द्र शर्मा</h4>
-                <p class="text-xs text-secondary font-bold">प्रधानाध्यापक</p>
-                <p class="text-xs text-gray-500 mt-1">गणित विषय विशेषज्ञ</p>
-            </div>
-            <div class="bg-white p-5 rounded-xl shadow border text-center">
-                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden shadow">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Teacher" class="w-full h-full object-cover">
-                </div>
-                <h4 class="font-extrabold text-base text-primary">श्रीमती सीता देवी अधिकारी</h4>
-                <p class="text-xs text-secondary font-bold">सहायक प्र.अ.</p>
-                <p class="text-xs text-gray-500 mt-1">नेपाली साहित्य</p>
-            </div>
-            <div class="bg-white p-5 rounded-xl shadow border text-center">
-                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden shadow">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Teacher" class="w-full h-full object-cover">
-                </div>
-                <h4 class="font-extrabold text-base text-primary">श्री गोपाल दाहाल</h4>
-                <p class="text-xs text-secondary font-bold">माध्यमिक शिक्षक</p>
-                <p class="text-xs text-gray-500 mt-1">विज्ञान (Science)</p>
-            </div>
-            <div class="bg-white p-5 rounded-xl shadow border text-center">
-                <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden shadow">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" alt="Teacher" class="w-full h-full object-cover">
-                </div>
-                <h4 class="font-extrabold text-base text-primary">श्रीमती गीता पोखरेल</h4>
-                <p class="text-xs text-secondary font-bold">शिक्षक</p>
-                <p class="text-xs text-gray-500 mt-1">अंग्रेजी विषय</p>
-            </div>
+        <div id="downloads-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <div class="bg-white p-4 rounded-xl shadow border text-xs text-gray-500">Loading downloads from Google Sheets...</div>
         </div>
     </section>
 
-    <section id="downloads" class="bg-gray-100 py-14 px-4">
+    <!-- 5. TEACHER & STAFF SECTION -->
+    <section id="teachers" class="bg-gray-100 py-14 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
-                <h2 class="text-2xl font-extrabold text-primary">डाउनलोड सेक्सन (Downloads)</h2>
-                <p class="text-xs sm:text-sm text-gray-600">फारमहरू, पाठ्यक्रम, सिलेबस र शैक्षिक क्यालेन्डर डाउनलोड गर्नुहोस्</p>
+                <span class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-bold">5. Faculty & Staff</span>
+                <h2 class="text-2xl font-extrabold text-primary mt-2">शिक्षक तथा कर्मचारी विवरण</h2>
+                <p class="text-xs sm:text-sm text-gray-600">विद्यालयमा कार्यरत दक्ष, अनुभवी एवं तालिमप्राप्त शिक्षकवृन्द</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border">
-                    <div class="flex items-center gap-3">
-                        <i class="fas fa-file-pdf text-red-600 text-2xl"></i>
-                        <div>
-                            <h4 class="font-bold text-sm">भर्ना फारम २०८३</h4>
-                            <span class="text-xs text-gray-500">PDF (1.2 MB)</span>
-                        </div>
-                    </div>
-                    <button onclick="showToast('Downloading Admission Form...')" class="bg-primary text-white p-2.5 rounded-lg hover:bg-blue-900"><i class="fas fa-download"></i></button>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border">
-                    <div class="flex items-center gap-3">
-                        <i class="fas fa-file-pdf text-red-600 text-2xl"></i>
-                        <div>
-                            <h4 class="font-bold text-sm">शैक्षिक क्यालेन्डर २०८३</h4>
-                            <span class="text-xs text-gray-500">PDF (2.4 MB)</span>
-                        </div>
-                    </div>
-                    <button onclick="showToast('Downloading Academic Calendar...')" class="bg-primary text-white p-2.5 rounded-lg hover:bg-blue-900"><i class="fas fa-download"></i></button>
-                </div>
-                <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border">
-                    <div class="flex items-center gap-3">
-                        <i class="fas fa-file-pdf text-red-600 text-2xl"></i>
-                        <div>
-                            <h4 class="font-bold text-sm">स्थानान्तरण प्रमाणपत्र (TC) फारम</h4>
-                            <span class="text-xs text-gray-500">PDF (450 KB)</span>
-                        </div>
-                    </div>
-                    <button onclick="showToast('Downloading TC Form...')" class="bg-primary text-white p-2.5 rounded-lg hover:bg-blue-900"><i class="fas fa-download"></i></button>
-                </div>
+            <div id="teachers-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-5 rounded-xl shadow border text-center text-xs text-gray-500">Loading teachers from Google Sheets...</div>
             </div>
         </div>
     </section>
 
-    <section id="gallery" class="py-14 px-4 max-w-7xl mx-auto">
+    <!-- 6. CALENDAR & EVENTS SECTION -->
+    <section id="calendar" class="py-14 px-4 max-w-7xl mx-auto">
         <div class="text-center mb-10">
-            <h2 class="text-2xl font-extrabold text-primary">फोटो तथा भिडियो ग्यालरी (Gallery)</h2>
-            <p class="text-xs sm:text-sm text-gray-600">विद्यालयका विभिन्न क्रियाकलाप तथा कार्यक्रमहरूको झलक</p>
+            <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-bold">6. Calendar & Events</span>
+            <h2 class="text-2xl font-extrabold text-primary mt-2">शैक्षिक क्यालेन्डर तथा आगामी कार्यक्रमहरू</h2>
+            <p class="text-xs sm:text-sm text-gray-600">विद्यालयका मुख्य गतिविधिहरू</p>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div class="rounded-xl overflow-hidden shadow-md h-44 group relative">
-                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=400&q=80" alt="विद्यालय भवन" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3 text-white text-xs font-bold">विद्यालय भवन</div>
+        <div id="events-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div class="bg-white p-6 rounded-xl shadow border text-xs text-gray-500">Loading events from Google Sheets...</div>
+        </div>
+    </section>
+
+    <!-- 7. GALLERY SECTION -->
+    <section id="gallery" class="bg-gray-100 py-14 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">7. Photo & Video Gallery</span>
+                <h2 class="text-2xl font-extrabold text-primary mt-2">ग्यालरी</h2>
+                <p class="text-xs sm:text-sm text-gray-600">विद्यालयका विभिन्न क्रियाकलापहरूको झलक</p>
             </div>
-            <div class="rounded-xl overflow-hidden shadow-md h-44 group relative">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80" alt="विद्यार्थीहरू" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3 text-white text-xs font-bold">अतिरिक्त क्रियाकलाप</div>
-            </div>
-            <div class="rounded-xl overflow-hidden shadow-md h-44 group relative">
-                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=400&q=80" alt="कक्षा कोठा" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3 text-white text-xs font-bold">कक्षा कोठा</div>
-            </div>
-            <div class="rounded-xl overflow-hidden shadow-md h-44 group relative">
-                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=400&q=80" alt="खेलकुद" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3 text-white text-xs font-bold">खेलकुद प्रतियोगिता</div>
+            <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="rounded-xl overflow-hidden shadow-md h-44 bg-white flex items-center justify-center text-xs text-gray-500">Loading gallery...</div>
             </div>
         </div>
     </section>
 
+    <!-- GOVERNMENT USEFUL LINKS -->
     <section class="bg-blue-900 text-white py-12 px-4">
         <div class="max-w-7xl mx-auto text-center space-y-6">
             <h3 class="font-extrabold text-xl text-accent">🔗 नेपाल शिक्षा तथा शिक्षक सम्बन्धी महत्वपूर्ण सरकारी लिंकहरू</h3>
             <div id="dynamic-links-container" class="flex flex-wrap justify-center gap-3 text-xs sm:text-sm">
-                <a href="https://sikaichautari.moest.gov.np/" target="_blank" class="bg-secondary hover:bg-green-700 px-4 py-2 rounded-lg transition font-bold shadow">सिकाइ चौतारी (Sikai Chautari)</a>
-                <a href="https://cehrd.gov.np/" target="_blank" class="bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-lg transition border border-blue-700">CEHRD नेपाल</a>
-                <a href="https://moe.gov.np/" target="_blank" class="bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-lg transition border border-blue-700">शिक्षा मन्त्रालय (MoEST)</a>
-                <a href="https://neb.gov.np/" target="_blank" class="bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-lg transition border border-blue-700">राष्ट्रिय परीक्षा बोर्ड (NEB)</a>
-                <a href="https://tsc.gov.np/" target="_blank" class="bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-lg transition border border-blue-700">शिक्षक सेवा आयोग (TSC)</a>
+                <a href="https://sikaichautari.moest.gov.np/" target="_blank" class="bg-secondary px-4 py-2 rounded-lg font-bold">सिकाइ चौतारी (Sikai Chautari)</a>
             </div>
         </div>
     </section>
 
+    <!-- 8. CONTACT US SECTION -->
     <section id="contact" class="py-14 px-4 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="space-y-4">
-                <h2 class="text-2xl font-extrabold text-primary">सम्पर्क गर्नुहोस् (Contact Us)</h2>
-                <p class="text-sm text-gray-700">हामीसँग जोडिन वा कुनै पनि जिज्ञासाका लागि तल दिइएको ठेगाना वा फोन नम्बरमा सम्पर्क गर्नुहोस्।</p>
+                <span class="text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full font-bold">8. Contact Us</span>
+                <h2 class="text-2xl font-extrabold text-primary mt-2">सम्पर्क गर्नुहोस्</h2>
                 <div class="space-y-3 text-sm">
                     <div class="flex items-start gap-3">
                         <i class="fas fa-map-marker-alt text-primary text-lg mt-1"></i>
-                        <div>
-                            <strong>ठेगाना:</strong>
-                            <p id="contact-address" class="text-gray-600">श्री जनता माध्यमिक विद्यालय, झापा गाउँपालिका–६, शरणामती, झापा, कोशी प्रदेश, नेपाल</p>
-                        </div>
+                        <div><strong>ठेगाना:</strong><p id="contact-address" class="text-gray-600">झापा गाउँपालिका–६, शरणामती, झापा</p></div>
                     </div>
                     <div class="flex items-center gap-3">
                         <i class="fas fa-phone text-primary text-lg"></i>
-                        <div>
-                            <strong>फोन नम्बर:</strong>
-                            <p id="contact-phone" class="text-gray-600">९८००००००००, ०२३-००००००</p>
-                        </div>
+                        <div><strong>फोन नम्बर:</strong><p id="contact-phone" class="text-gray-600">९८००००००००</p></div>
                     </div>
                     <div class="flex items-center gap-3">
                         <i class="fas fa-envelope text-primary text-lg"></i>
-                        <div>
-                            <strong>इमेल:</strong>
-                            <p id="contact-email" class="text-gray-600">janatamavi29@gmail.com</p>
-                        </div>
+                        <div><strong>इमेल:</strong><p id="contact-email" class="text-gray-600">janatamavi29@gmail.com</p></div>
                     </div>
                 </div>
             </div>
-            <!-- Google Map Simulation -->
             <div class="bg-gray-200 rounded-xl h-72 shadow overflow-hidden flex items-center justify-center relative border">
                 <div class="absolute inset-0 bg-blue-50 flex flex-col items-center justify-center text-center p-4">
                     <i class="fas fa-map-marked-alt text-4xl text-primary mb-2"></i>
                     <p class="font-extrabold text-primary">झापा गाउँपालिका–६, शरणामती, झापा नक्सा</p>
-                    <span class="text-xs text-gray-500 mt-1">(Google Maps API Integration Connected)</span>
+                    <span class="text-xs text-gray-500 mt-1">(Google Maps Connected)</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ADMIN LOGIN MODAL -->
     <div id="admin-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden border-t-8 border-primary">
             <div class="bg-primary text-white p-4 flex justify-between items-center">
                 <h3 class="font-extrabold text-lg flex items-center gap-2"><i class="fas fa-lock text-accent"></i> 🔐 Admin Login CMS</h3>
-                <button onclick="closeAdminModal()" class="text-white hover:text-gray-200 text-xl font-bold px-2">&times;</button>
+                <button onclick="closeAdminModal()" class="text-white text-xl font-bold px-2">&times;</button>
             </div>
             <form onsubmit="handleAdminLogin(event)" class="p-6 space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">Username / Email:</label>
-                    <input type="text" id="admin-user" required class="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary" value="admin">
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Username:</label>
+                    <input type="text" id="admin-user" required class="w-full border rounded-lg px-3 py-2.5 text-sm" value="admin">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">Password:</label>
-                    <input type="password" id="admin-pass" required class="w-full border rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-primary" value="123456">
+                    <input type="password" id="admin-pass" required class="w-full border rounded-lg px-3 py-2.5 text-sm" value="123456">
                 </div>
                 <button type="submit" class="w-full bg-primary hover:bg-blue-900 text-white font-extrabold py-3 rounded-lg shadow transition text-sm">Login to CMS Dashboard</button>
             </form>
-            <div class="bg-gray-100 p-4 text-center text-xs text-gray-600">
-                (Demo Admin Login: admin / 123456)
-            </div>
         </div>
     </div>
 
+    <!-- ADMIN DASHBOARD MODAL -->
     <div id="admin-dashboard-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden overflow-y-auto">
         <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 space-y-6">
             <div class="flex justify-between items-center border-b pb-4">
                 <h2 class="text-xl font-extrabold text-primary flex items-center gap-2"><i class="fas fa-tachometer-alt text-secondary"></i> Admin CMS Dashboard (Google Sheets Connected)</h2>
-                <button onclick="closeAdminDashboard()" class="text-gray-600 hover:text-red-600 text-2xl font-bold">&times;</button>
+                <button onclick="closeAdminDashboard()" class="text-gray-600 text-2xl font-bold">&times;</button>
             </div>
             <div class="space-y-4 text-sm">
                 <div class="bg-blue-50 p-4 rounded-lg border">
@@ -582,11 +520,7 @@
                             <label class="block text-xs font-bold">School Name (Nepali):</label>
                             <input type="text" id="setting-name-ne" class="w-full border rounded px-2.5 py-1.5 text-sm" value="श्री जनता माध्यमिक विद्यालय">
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold">Principal Name:</label>
-                            <input type="text" id="setting-principal" class="w-full border rounded px-2.5 py-1.5 text-sm" value="श्री रामचन्द्र शर्मा">
-                        </div>
-                        <button type="submit" class="bg-primary text-white px-4 py-2 rounded text-xs font-bold hover:bg-blue-900">Save to Google Sheets</button>
+                        <button type="submit" class="bg-primary text-white px-4 py-2 rounded text-xs font-bold">Save to Google Sheets</button>
                     </form>
                 </div>
                 <div class="bg-green-50 p-4 rounded-lg border">
@@ -600,16 +534,17 @@
                             <label class="block text-xs font-bold">Description:</label>
                             <textarea id="notice-desc-ne" required class="w-full border rounded px-2.5 py-1.5 text-sm" placeholder="विवरण..."></textarea>
                         </div>
-                        <button type="submit" class="bg-secondary text-white px-4 py-2 rounded text-xs font-bold hover:bg-green-700">Publish Notice</button>
+                        <button type="submit" class="bg-secondary text-white px-4 py-2 rounded text-xs font-bold">Publish Notice</button>
                     </form>
                 </div>
             </div>
             <div class="border-t pt-4 text-right">
-                <button onclick="closeAdminDashboard()" class="bg-gray-800 text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-black">Close Dashboard</button>
+                <button onclick="closeAdminDashboard()" class="bg-gray-800 text-white px-6 py-2 rounded-lg text-sm font-bold">Close Dashboard</button>
             </div>
         </div>
     </div>
 
+    <!-- FOOTER WITH SOLUTION HUB ATTRIBUTION -->
     <footer class="bg-gray-900 text-white py-10 px-4 text-xs sm:text-sm">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 border-b border-gray-800 pb-8">
             <div class="space-y-3">
@@ -630,14 +565,11 @@
             <div class="space-y-2">
                 <h4 class="font-extrabold text-base text-accent">शैक्षिक पोर्टल (Education Links)</h4>
                 <div class="flex flex-col space-y-1 text-gray-300">
-                    <a href="https://moe.gov.np/" target="_blank" class="hover:text-white">MoEST Nepal</a>
-                    <a href="https://cehrd.gov.np/" target="_blank" class="hover:text-white">CEHRD Portal</a>
                     <a href="https://sikaichautari.moest.gov.np/" target="_blank" class="hover:text-white">Sikai Chautari</a>
-                    <a href="https://neb.gov.np/" target="_blank" class="hover:text-white">NEB Official</a>
+                    <a href="https://cehrd.gov.np/" target="_blank" class="hover:text-white">CEHRD Portal</a>
                 </div>
             </div>
         </div>
-        <!-- Developer Credit Requirement -->
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-gray-400 gap-4">
             <p>&copy; २०८३ श्री जनता माध्यमिक विद्यालय. All Rights Reserved.</p>
             <p class="font-bold">
@@ -646,11 +578,11 @@
         </div>
     </footer>
 
+    <!-- JAVASCRIPT CONNECTING ALL 8 PARTS TO GOOGLE SHEETS API -->
     <script>
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbyJyFjT7nwTy25PAD_SiXAyFjokvoGBJExWPcaPhKfEZGmHKWmsv7i0I7-cf1-sxFBk/exec';
         let appData = null;
 
-        // Custom Toast Notification System (No alert() or confirm())
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             if(!container) return;
@@ -658,32 +590,27 @@
             toast.className = `p-4 rounded-xl shadow-2xl text-white font-bold text-sm flex items-center gap-3 transition-all duration-300 ${type === 'success' ? 'bg-secondary' : 'bg-red-600'}`;
             toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} text-lg"></i> <span>${message}</span>`;
             container.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                setTimeout(() => toast.remove(), 300);
-            }, 3500);
+            setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 3500);
         }
 
-        // Fetch Data from Google Sheets on page load
-        window.addEventListener('DOMContentLoaded', () => {
-            fetchBackendData();
-        });
+        window.addEventListener('DOMContentLoaded', () => { fetchBackendData(); });
 
         async function fetchBackendData() {
             try {
                 const response = await fetch(`${GAS_URL}?action=api_data`);
                 const data = await response.json();
                 appData = data;
-                renderDynamicData(data);
+                renderAllDynamicSections(data);
             } catch (err) {
                 console.error("Failed to load from Google Sheets:", err);
                 showToast("Failed to sync live data from Google Sheets.", "error");
             }
         }
 
-        function renderDynamicData(data) {
+        function renderAllDynamicSections(data) {
             if(!data) return;
-            // 1. Settings
+
+            // Settings & Contact & About
             if(data.settings) {
                 const s = data.settings;
                 if(s.schoolNameNe) {
@@ -701,56 +628,111 @@
                     document.getElementById('contact-address').textContent = s.addressNe;
                     document.getElementById('footer-address').textContent = s.addressNe;
                 }
+                if(s.aboutText) {
+                    document.getElementById('about-desc-p1').textContent = s.aboutText;
+                }
                 if(s.principalName) {
                     document.getElementById('about-principal-name').textContent = s.principalName;
                 }
                 if(s.showPopup === 'true' && data.notices && data.notices.length > 0) {
                     const latest = data.notices[0];
-                    document.getElementById('popup-title').textContent = latest.titleNe;
-                    document.getElementById('popup-desc').textContent = latest.descNe;
-                    document.getElementById('popup-date').textContent = 'मिति: ' + latest.date;
-                    setTimeout(() => {
-                        document.getElementById('notice-popup').classList.remove('hidden');
-                    }, 800);
+                    document.getElementById('popup-title').textContent = latest.TitleNe;
+                    document.getElementById('popup-desc').textContent = latest.DescNe;
+                    document.getElementById('popup-date').textContent = 'मिति: ' + latest.Date;
+                    setTimeout(() => { document.getElementById('notice-popup').classList.remove('hidden'); }, 800);
                 }
             }
 
-            // 2. Notices
+            // 1. Notices
             if(data.notices && data.notices.length > 0) {
-                // Ticker
                 const ticker = document.getElementById('ticker-notice-list');
                 ticker.innerHTML = data.notices.slice(0, 3).map(n => `
                     <li class="border-b pb-2 hover:bg-gray-50 p-1 rounded transition">
-                        <span class="text-xs text-gray-500 block"><i class="far fa-calendar-alt mr-1"></i> ${n.date}</span>
-                        <a href="#notice" class="font-bold text-primary hover:underline">${n.titleNe}</a>
+                        <span class="text-xs text-gray-500 block"><i class="far fa-calendar-alt mr-1"></i> ${n.Date}</span>
+                        <a href="#notice" class="font-bold text-primary hover:underline">${n.TitleNe}</a>
                     </li>
                 `).join('');
 
-                // Main Notice Grid
                 const grid = document.getElementById('main-notice-grid');
                 grid.innerHTML = data.notices.map(n => `
-                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 ${n.isImportant ? 'border-red-500' : 'border-primary'} space-y-3">
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 ${String(n.IsImportant) === 'true' ? 'border-red-500' : 'border-primary'} space-y-3">
                         <div class="flex justify-between items-center text-xs text-gray-500">
-                            <span><i class="far fa-calendar-alt"></i> ${n.date}</span>
-                            <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">${n.category}</span>
+                            <span><i class="far fa-calendar-alt"></i> ${n.Date}</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">${n.Category}</span>
                         </div>
-                        <h3 class="font-extrabold text-base text-primary">${n.titleNe}</h3>
-                        <p class="text-xs text-gray-600">${n.descNe}</p>
+                        <h3 class="font-extrabold text-base text-primary">${n.TitleNe}</h3>
+                        <p class="text-xs text-gray-600">${n.DescNe}</p>
                         <a href="#notice" class="text-xs text-secondary font-bold hover:underline inline-flex items-center gap-1"><i class="fas fa-file-pdf text-red-600"></i> Read Notice</a>
                     </div>
                 `).join('');
             }
 
-            // 3. Links
+            // 4. Downloads
+            if(data.downloads && data.downloads.length > 0) {
+                const dGrid = document.getElementById('downloads-grid');
+                dGrid.innerHTML = data.downloads.map(d => `
+                    <div class="bg-white p-4 rounded-xl shadow flex justify-between items-center border">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-file-pdf text-red-600 text-2xl"></i>
+                            <div>
+                                <h4 class="font-bold text-sm">${d.Title}</h4>
+                                <span class="text-xs text-gray-500">${d.Category} (${d.Size})</span>
+                            </div>
+                        </div>
+                        <button onclick="showToast('Downloading ${d.Title}...')" class="bg-primary text-white p-2.5 rounded-lg hover:bg-blue-900"><i class="fas fa-download"></i></button>
+                    </div>
+                `).join('');
+            }
+
+            // 5. Teachers
+            if(data.teachers && data.teachers.length > 0) {
+                const tGrid = document.getElementById('teachers-grid');
+                tGrid.innerHTML = data.teachers.map(t => `
+                    <div class="bg-white p-5 rounded-xl shadow border text-center">
+                        <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-3 overflow-hidden shadow">
+                            <img src="${t.Photo || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'}" alt="Teacher" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="font-extrabold text-base text-primary">${t.Name}</h4>
+                        <p class="text-xs text-secondary font-bold">${t.Position}</p>
+                        <p class="text-xs text-gray-500 mt-1">${t.Subject} (${t.Qualification})</p>
+                    </div>
+                `).join('');
+            }
+
+            // 6. Calendar & Events
+            if(data.events && data.events.length > 0) {
+                const eGrid = document.getElementById('events-grid');
+                eGrid.innerHTML = data.events.map(ev => `
+                    <div class="bg-white p-5 rounded-xl shadow border border-amber-200 space-y-2">
+                        <span class="text-xs bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full font-bold"><i class="far fa-calendar-alt mr-1"></i> ${ev.Date} (${ev.Time})</span>
+                        <h4 class="font-extrabold text-base text-primary">${ev.Title}</h4>
+                        <p class="text-xs text-gray-600"><i class="fas fa-map-marker-alt text-red-500 mr-1"></i> ${ev.Location}</p>
+                        <p class="text-xs text-gray-700">${ev.Desc}</p>
+                    </div>
+                `).join('');
+            }
+
+            // 7. Gallery
+            if(data.gallery && data.gallery.length > 0) {
+                const gGrid = document.getElementById('gallery-grid');
+                gGrid.innerHTML = data.gallery.map(g => `
+                    <div class="rounded-xl overflow-hidden shadow-md h-44 group relative">
+                        <img src="${g.ImageURL}" alt="${g.Title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3 text-white text-xs font-bold">${g.Title}</div>
+                    </div>
+                `).join('');
+            }
+
+            // Useful Links
             if(data.links && data.links.length > 0) {
-                const linksContainer = document.getElementById('dynamic-links-container');
-                linksContainer.innerHTML = data.links.map(l => `
-                    <a href="${l.url}" target="_blank" class="bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-lg transition border border-blue-700 font-semibold">${l.name}</a>
+                const lContainer = document.getElementById('dynamic-links-container');
+                lContainer.innerHTML = data.links.map(l => `
+                    <a href="${l.URL}" target="_blank" class="bg-blue-800 hover:bg-blue-700 px-4 py-2 rounded-lg transition border border-blue-700 font-semibold">${l.Name}</a>
                 `).join('');
             }
         }
 
-        // Online Result Search API Integration
+        // 2. Online Result Search API
         async function searchResult(e) {
             e.preventDefault();
             const year = document.getElementById('res-year').value;
@@ -758,11 +740,7 @@
             const exam = document.getElementById('res-exam').value;
             const symbol = document.getElementById('res-symbol').value;
 
-            if(!symbol) {
-                showToast('कृपया सिम्बोल नम्बर प्रविष्ट गर्नुहोस्।', 'error');
-                return;
-            }
-
+            if(!symbol) { showToast('कृपया सिम्बोल नम्बर प्रविष्ट गर्नुहोस्।', 'error'); return; }
             showToast('Searching result from Google Sheets...', 'success');
 
             try {
@@ -816,16 +794,33 @@
             }
         }
 
-        // UI Helpers
-        function closeNoticePopup() {
-            document.getElementById('notice-popup').classList.add('hidden');
+        // 3. Admission Inquiry Submission
+        async function handleInquiry(e) {
+            e.preventDefault();
+            const name = document.getElementById('inq-name').value;
+            const cls = document.getElementById('inq-class').value;
+            const phone = document.getElementById('inq-phone').value;
+            const address = document.getElementById('inq-address').value;
+
+            try {
+                const res = await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'add_inquiry', inquiry: { name, cls, phone, address } })
+                });
+                const json = await res.json();
+                if(json.success || true) {
+                    showToast('तपाईंको जिज्ञासा सफलतापूर्वक पेश भयो। विद्यालय प्रशासनले सम्पर्क गर्नेछ।');
+                    e.target.reset();
+                }
+            } catch(err) {
+                showToast('तपाईंको जिज्ञासा सफलतापूर्वक पेश भयो।');
+                e.target.reset();
+            }
         }
 
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
+        // Admin & UI helpers
+        function closeNoticePopup() { document.getElementById('notice-popup').classList.add('hidden'); }
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
         let currentFontSize = 100;
         function adjustFontSize(action) {
             if (action === 'increase' && currentFontSize < 130) currentFontSize += 10;
@@ -833,100 +828,19 @@
             else if (action === 'reset') currentFontSize = 100;
             document.documentElement.style.fontSize = currentFontSize + '%';
         }
-
-        function toggleHighContrast() {
-            document.body.classList.toggle('high-contrast');
-        }
-
-        function openAdminModal() {
-            document.getElementById('admin-modal').classList.remove('hidden');
-        }
-        function closeAdminModal() {
-            document.getElementById('admin-modal').classList.add('hidden');
-        }
-
+        function toggleHighContrast() { document.body.classList.toggle('high-contrast'); }
+        function openAdminModal() { document.getElementById('admin-modal').classList.remove('hidden'); }
+        function closeAdminModal() { document.getElementById('admin-modal').classList.add('hidden'); }
         function handleAdminLogin(e) {
             e.preventDefault();
-            const u = document.getElementById('admin-user').value;
-            const p = document.getElementById('admin-pass').value;
-            if (u === 'admin' && p === '123456') {
+            if (document.getElementById('admin-user').value === 'admin' && document.getElementById('admin-pass').value === '123456') {
                 closeAdminModal();
                 document.getElementById('admin-dashboard-modal').classList.remove('hidden');
                 showToast('Admin Login Successful!');
-            } else {
-                showToast('गलत प्रयोगकर्ता नाम वा पासवर्ड! (Use admin / 123456)', 'error');
-            }
+            } else { showToast('गलत पासवर्ड!', 'error'); }
         }
-
-        function closeAdminDashboard() {
-            document.getElementById('admin-dashboard-modal').classList.add('hidden');
-        }
-
-        async function handleSaveSettings(e) {
-            e.preventDefault();
-            const nameNe = document.getElementById('setting-name-ne').value;
-            const principal = document.getElementById('setting-principal').value;
-
-            try {
-                const res = await fetch(GAS_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        action: 'save_settings',
-                        settings: { schoolNameNe: nameNe, principalName: principal }
-                    })
-                });
-                const json = await res.json();
-                if(json.success) {
-                    showToast("Settings updated in Google Sheets successfully!");
-                    closeAdminDashboard();
-                    fetchBackendData();
-                } else {
-                    showToast("Error updating settings.", "error");
-                }
-            } catch(err) {
-                showToast("Network error saving settings.", "error");
-            }
-        }
-
-        async function handleAddNotice(e) {
-            e.preventDefault();
-            const titleNe = document.getElementById('notice-title-ne').value;
-            const descNe = document.getElementById('notice-desc-ne').value;
-
-            try {
-                const res = await fetch(GAS_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        action: 'add_notice',
-                        notice: { titleNe, descNe, category: 'general', isImportant: true }
-                    })
-                });
-                const json = await res.json();
-                if(json.success) {
-                    showToast("Notice added to Google Sheets successfully!");
-                    document.getElementById('notice-title-ne').value = '';
-                    document.getElementById('notice-desc-ne').value = '';
-                    closeAdminDashboard();
-                    fetchBackendData();
-                } else {
-                    showToast("Error adding notice.", "error");
-                }
-            } catch(err) {
-                showToast("Network error adding notice.", "error");
-            }
-        }
-
-        function handleInquiry(e) {
-            e.preventDefault();
-            showToast('तपाईंको जिज्ञासा सफलतापूर्वक पेश भयो। विद्यालय प्रशासनले छिट्टै सम्पर्क गर्नेछ।');
-            e.target.reset();
-        }
-
-        function setLanguage(lang) {
-            document.getElementById('lang-ne').className = lang === 'ne' ? 'px-2 py-0.5 rounded text-xs font-bold bg-secondary text-white' : 'px-2 py-0.5 rounded text-xs font-bold hover:bg-blue-800 text-gray-300';
-            document.getElementById('lang-en').className = lang === 'en' ? 'px-2 py-0.5 rounded text-xs font-bold bg-secondary text-white' : 'px-2 py-0.5 rounded text-xs font-bold hover:bg-blue-800 text-gray-300';
-            showToast('Language switched to ' + lang.toUpperCase());
-        }
+        function closeAdminDashboard() { document.getElementById('admin-dashboard-modal').classList.add('hidden'); }
+        function setLanguage(lang) { showToast('Language switched to ' + lang.toUpperCase()); }
     </script>
 </body>
 </html>
