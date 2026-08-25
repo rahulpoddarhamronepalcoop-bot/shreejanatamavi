@@ -544,6 +544,7 @@
                 <button onclick="switchAdminTab('notices')" id="tab-notices" class="px-4 py-2 border-b-2 border-primary text-primary whitespace-nowrap">Notices</button>
                 <button onclick="switchAdminTab('teachers')" id="tab-teachers" class="px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap">Teachers</button>
                 <button onclick="switchAdminTab('downloads')" id="tab-downloads" class="px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap">Downloads</button>
+                <button onclick="switchAdminTab('gallery')" id="tab-gallery" class="px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap">Gallery</button>
                 <button onclick="switchAdminTab('results')" id="tab-results" class="px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap">Bulk Results</button>
                 <button onclick="switchAdminTab('users')" id="tab-users" class="px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap">Users</button>
             </div>
@@ -937,7 +938,7 @@
         function closeAdminDashboard() { document.getElementById('admin-dashboard-modal').classList.add('hidden'); }
 
         function switchAdminTab(tab) {
-            ['notices', 'teachers', 'downloads', 'results', 'users'].forEach(t => {
+            ['notices', 'teachers', 'downloads', 'gallery', 'results', 'users'].forEach(t => {
                 const btn = document.getElementById(`tab-${t}`);
                 if(btn) btn.className = 'px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap';
             });
@@ -965,43 +966,29 @@
                         </tbody>
                     </table></div>
                 `;
-            } else if(tab === 'teachers') {
+            } else if(tab === 'gallery') {
                 content.innerHTML = `
                     <div class="flex justify-between items-center mb-3">
-                        <h4 class="font-bold text-primary">Manage Teachers</h4>
-                        <button onclick="openAddModal('Teachers')" class="bg-primary text-white px-3 py-1.5 rounded text-xs font-bold">+ Add Teacher</button>
+                        <h4 class="font-bold text-primary">Manage Gallery</h4>
+                        <button onclick="openAddModal('Gallery')" class="bg-primary text-white px-3 py-1.5 rounded text-xs font-bold">+ Add Photo</button>
                     </div>
                     <div class="overflow-x-auto"><table class="w-full text-xs text-left border">
-                        <thead class="bg-gray-100 border-b"><tr><th class="p-2">Name</th><th class="p-2">Position</th><th class="p-2">Subject</th><th class="p-2">Action</th></tr></thead>
+                        <thead class="bg-gray-100 border-b"><tr><th class="p-2">Image</th><th class="p-2">Title</th><th class="p-2">Category</th><th class="p-2">Action</th></tr></thead>
                         <tbody>
-                            ${appData && appData.teachers ? appData.teachers.map(t => `
+                            ${appData && appData.gallery ? appData.gallery.map(g => {
+                                const gStr = encodeURIComponent(JSON.stringify(g));
+                                return `
                                 <tr class="border-b">
-                                    <td class="p-2 font-bold">${t.Name}</td>
-                                    <td class="p-2">${t.Position}</td>
-                                    <td class="p-2">${t.Subject}</td>
-                                    <td class="p-2"><button onclick="deleteItem('Teachers', '${t.ID}')" class="text-red-600 hover:underline"><i class="fas fa-trash"></i></button></td>
+                                    <td class="p-2"><img src="${g.ImageURL}" class="h-10 w-16 object-cover rounded shadow" alt="img"></td>
+                                    <td class="p-2 font-bold">${g.Title}</td>
+                                    <td class="p-2">${g.Category}</td>
+                                    <td class="p-2 flex gap-2">
+                                        <button onclick="openEditGalleryModal('${gStr}')" class="text-blue-600 hover:text-blue-800"><i class="fas fa-edit"></i> Edit</button>
+                                        <button onclick="deleteItem('Gallery', '${g.ID}')" class="text-red-600 hover:text-red-800"><i class="fas fa-trash"></i> Del</button>
+                                    </td>
                                 </tr>
-                            `).join('') : '<tr><td colspan="4" class="p-2 text-center">No teachers found</td></tr>'}
-                        </tbody>
-                    </table></div>
-                `;
-            } else if(tab === 'downloads') {
-                content.innerHTML = `
-                    <div class="flex justify-between items-center mb-3">
-                        <h4 class="font-bold text-primary">Manage Downloads</h4>
-                        <button onclick="openAddModal('Downloads')" class="bg-primary text-white px-3 py-1.5 rounded text-xs font-bold">+ Add File</button>
-                    </div>
-                    <div class="overflow-x-auto"><table class="w-full text-xs text-left border">
-                        <thead class="bg-gray-100 border-b"><tr><th class="p-2">Title</th><th class="p-2">Category</th><th class="p-2">Size</th><th class="p-2">Action</th></tr></thead>
-                        <tbody>
-                            ${appData && appData.downloads ? appData.downloads.map(d => `
-                                <tr class="border-b">
-                                    <td class="p-2 font-bold">${d.Title}</td>
-                                    <td class="p-2">${d.Category}</td>
-                                    <td class="p-2">${d.Size}</td>
-                                    <td class="p-2"><button onclick="deleteItem('Downloads', '${d.ID}')" class="text-red-600 hover:underline"><i class="fas fa-trash"></i></button></td>
-                                </tr>
-                            `).join('') : '<tr><td colspan="4" class="p-2 text-center">No downloads found</td></tr>'}
+                                `;
+                            }).join('') : '<tr><td colspan="4" class="p-2 text-center">No gallery items found</td></tr>'}
                         </tbody>
                     </table></div>
                 `;
@@ -1105,6 +1092,12 @@
                     <div><label class="block text-xs font-bold mb-1">Password:</label><input type="password" id="add-upass" required class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
                     <div><label class="block text-xs font-bold mb-1">Role:</label><select id="add-urole" class="w-full border rounded px-2.5 py-1.5 text-sm"><option>Super Admin</option><option selected>Editor</option></select></div>
                 `;
+            } else if(sheetName === 'Gallery') {
+                fieldsHtml = `
+                    <div><label class="block text-xs font-bold mb-1">Photo Title:</label><input type="text" id="add-gtitle" required class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Image URL (Google Drive/Unsplash):</label><input type="url" id="add-gurl" required class="w-full border rounded px-2.5 py-1.5 text-sm" placeholder="https://..."></div>
+                    <div><label class="block text-xs font-bold mb-1">Category:</label><select id="add-gcat" class="w-full border rounded px-2.5 py-1.5 text-sm"><option>Building</option><option>Activity</option><option>Sports</option><option>Awards</option></select></div>
+                `;
             }
 
             const modalHtml = `
@@ -1135,6 +1128,8 @@
                 item = { title: document.getElementById('add-dtitle').value, size: document.getElementById('add-dsize').value, category: document.getElementById('add-dcat').value, url: document.getElementById('add-durl').value };
             } else if(sheetName === 'Users') {
                 item = { username: document.getElementById('add-uname').value, email: document.getElementById('add-uemail').value, password: document.getElementById('add-upass').value, role: document.getElementById('add-urole').value };
+            } else if(sheetName === 'Gallery') {
+                item = { title: document.getElementById('add-gtitle').value, imageURL: document.getElementById('add-gurl').value, category: document.getElementById('add-gcat').value };
             }
 
             showToast('Saving to Google Sheets...', 'success');
@@ -1149,6 +1144,54 @@
                 setTimeout(() => switchAdminTab(sheetName.toLowerCase()), 800);
             } catch(err) {
                 showToast('Error saving item.', 'error');
+            }
+        }
+
+        function openEditGalleryModal(gStr) {
+            const g = JSON.parse(decodeURIComponent(gStr));
+            const modalHtml = `
+                <div id="dynamic-edit-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+                    <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 space-y-4">
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <h3 class="font-extrabold text-base text-primary">Edit Gallery Photo</h3>
+                            <button onclick="document.getElementById('dynamic-edit-modal').remove()" class="text-gray-500 font-bold text-lg">&times;</button>
+                        </div>
+                        <form onsubmit="submitEditGallery(event, '${g.ID}')" class="space-y-3 text-sm">
+                            <div><label class="block text-xs font-bold mb-1">Photo Title:</label><input type="text" id="edit-gtitle" required class="w-full border rounded px-2.5 py-1.5 text-sm" value="${g.Title}"></div>
+                            <div><label class="block text-xs font-bold mb-1">Image URL:</label><input type="url" id="edit-gurl" required class="w-full border rounded px-2.5 py-1.5 text-sm" value="${g.ImageURL}"></div>
+                            <div><label class="block text-xs font-bold mb-1">Category:</label><select id="edit-gcat" class="w-full border rounded px-2.5 py-1.5 text-sm">
+                                <option ${g.Category==='Building'?'selected':''}>Building</option>
+                                <option ${g.Category==='Activity'?'selected':''}>Activity</option>
+                                <option ${g.Category==='Sports'?'selected':''}>Sports</option>
+                                <option ${g.Category==='Awards'?'selected':''}>Awards</option>
+                            </select></div>
+                            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-2.5 rounded hover:bg-blue-800">Update Photo</button>
+                        </form>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+        }
+
+        async function submitEditGallery(e, id) {
+            e.preventDefault();
+            const item = {
+                title: document.getElementById('edit-gtitle').value,
+                imageURL: document.getElementById('edit-gurl').value,
+                category: document.getElementById('edit-gcat').value
+            };
+            showToast('Updating Google Sheets...', 'success');
+            try {
+                await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'update_item', sheet: 'Gallery', id: id, item: item })
+                });
+                document.getElementById('dynamic-edit-modal').remove();
+                showToast('Gallery successfully updated!');
+                fetchBackendData();
+                setTimeout(() => switchAdminTab('gallery'), 800);
+            } catch(err) {
+                showToast('Error updating item.', 'error');
             }
         }
 
