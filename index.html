@@ -67,10 +67,12 @@
                     <button onclick="setLanguage('ne')" id="lang-ne" class="px-2 py-0.5 rounded text-xs font-bold bg-secondary text-white">नेपाली</button>
                     <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-0.5 rounded text-xs font-bold hover:bg-blue-800 text-gray-300">English</button>
                 </div>
-                <!-- Admin Quick Link -->
-                <button onclick="openAdminModal()" class="bg-accent text-gray-900 px-2.5 py-0.5 rounded text-xs font-bold hover:bg-amber-400 transition flex items-center gap-1">
-                    <i class="fas fa-lock"></i> Admin
-                </button>
+                <!-- Admin Quick Link / Profile -->
+                <div id="admin-auth-btn-container">
+                    <button onclick="openAdminModal()" class="bg-accent text-gray-900 px-2.5 py-0.5 rounded text-xs font-bold hover:bg-amber-400 transition flex items-center gap-1">
+                        <i class="fas fa-lock"></i> Admin Login
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -493,51 +495,63 @@
             </div>
             <form onsubmit="handleAdminLogin(event)" class="p-6 space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-gray-700 mb-1">Username:</label>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">Username / Email:</label>
                     <input type="text" id="admin-user" required class="w-full border rounded-lg px-3 py-2.5 text-sm" value="admin">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">Password:</label>
                     <input type="password" id="admin-pass" required class="w-full border rounded-lg px-3 py-2.5 text-sm" value="123456">
                 </div>
+                <div class="flex justify-between items-center text-xs">
+                    <label><input type="checkbox" class="mr-1"> Remember Me</label>
+                    <button type="button" onclick="openForgotModal()" class="text-primary hover:underline font-semibold">Forgot Password?</button>
+                </div>
                 <button type="submit" class="w-full bg-primary hover:bg-blue-900 text-white font-extrabold py-3 rounded-lg shadow transition text-sm">Login to CMS Dashboard</button>
             </form>
         </div>
     </div>
 
-    <!-- ADMIN DASHBOARD MODAL -->
+    <!-- FORGOT PASSWORD MODAL -->
+    <div id="forgot-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6 space-y-4">
+            <div class="flex justify-between items-center border-b pb-2">
+                <h3 class="font-extrabold text-base text-primary">Reset Password</h3>
+                <button onclick="closeForgotModal()" class="text-gray-500 font-bold text-lg">&times;</button>
+            </div>
+            <form onsubmit="handleForgotPassword(event)" class="space-y-3 text-sm">
+                <div>
+                    <label class="block text-xs font-bold mb-1">Enter your Admin Email:</label>
+                    <input type="email" id="forgot-email" required class="w-full border rounded px-3 py-2 text-sm" placeholder="admin@janata.edu.np">
+                </div>
+                <button type="submit" class="w-full bg-secondary text-white font-bold py-2.5 rounded">Send Reset Link</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD MODAL (FULL CRUD) -->
     <div id="admin-dashboard-modal" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 hidden overflow-y-auto">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6 space-y-6">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 space-y-6">
             <div class="flex justify-between items-center border-b pb-4">
-                <h2 class="text-xl font-extrabold text-primary flex items-center gap-2"><i class="fas fa-tachometer-alt text-secondary"></i> Admin CMS Dashboard (Google Sheets Connected)</h2>
-                <button onclick="closeAdminDashboard()" class="text-gray-600 text-2xl font-bold">&times;</button>
-            </div>
-            <div class="space-y-4 text-sm">
-                <div class="bg-blue-50 p-4 rounded-lg border">
-                    <h4 class="font-bold text-primary mb-2">Update School Settings</h4>
-                    <form onsubmit="handleSaveSettings(event)" class="space-y-2">
-                        <div>
-                            <label class="block text-xs font-bold">School Name (Nepali):</label>
-                            <input type="text" id="setting-name-ne" class="w-full border rounded px-2.5 py-1.5 text-sm" value="श्री जनता माध्यमिक विद्यालय">
-                        </div>
-                        <button type="submit" class="bg-primary text-white px-4 py-2 rounded text-xs font-bold">Save to Google Sheets</button>
-                    </form>
-                </div>
-                <div class="bg-green-50 p-4 rounded-lg border">
-                    <h4 class="font-bold text-secondary mb-2">Add New Notice</h4>
-                    <form onsubmit="handleAddNotice(event)" class="space-y-2">
-                        <div>
-                            <label class="block text-xs font-bold">Notice Title:</label>
-                            <input type="text" id="notice-title-ne" required class="w-full border rounded px-2.5 py-1.5 text-sm" placeholder="सूचनाको शीर्षक">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold">Description:</label>
-                            <textarea id="notice-desc-ne" required class="w-full border rounded px-2.5 py-1.5 text-sm" placeholder="विवरण..."></textarea>
-                        </div>
-                        <button type="submit" class="bg-secondary text-white px-4 py-2 rounded text-xs font-bold">Publish Notice</button>
-                    </form>
+                <h2 class="text-xl font-extrabold text-primary flex items-center gap-2"><i class="fas fa-tachometer-alt text-secondary"></i> Admin Dashboard (Google Sheets Connected)</h2>
+                <div class="flex items-center gap-3">
+                    <span id="current-user-display" class="text-xs bg-blue-100 text-primary px-2.5 py-1 rounded font-bold">Role: Super Admin</span>
+                    <button onclick="handleLogout()" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-xs font-bold"><i class="fas fa-sign-out-alt"></i> Logout</button>
                 </div>
             </div>
+
+            <!-- Tabs -->
+            <div class="flex border-b text-xs font-bold overflow-x-auto gap-2">
+                <button onclick="switchAdminTab('notices')" id="tab-notices" class="px-4 py-2 border-b-2 border-primary text-primary whitespace-nowrap">Notices Manager</button>
+                <button onclick="switchAdminTab('teachers')" id="tab-teachers" class="px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap">Teachers Manager</button>
+                <button onclick="switchAdminTab('downloads')" id="tab-downloads" class="px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap">Downloads Manager</button>
+                <button onclick="switchAdminTab('users')" id="tab-users" class="px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap">Users Manager</button>
+            </div>
+
+            <!-- Tab Content Area -->
+            <div id="admin-tab-content" class="space-y-4">
+                <!-- Injected via JS -->
+            </div>
+
             <div class="border-t pt-4 text-right">
                 <button onclick="closeAdminDashboard()" class="bg-gray-800 text-white px-6 py-2 rounded-lg text-sm font-bold">Close Dashboard</button>
             </div>
@@ -578,10 +592,11 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT CONNECTING ALL 8 PARTS TO GOOGLE SHEETS API -->
+    <!-- JAVASCRIPT CONNECTING ALL PARTS TO GOOGLE SHEETS API WITH FULL CRUD -->
     <script>
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbyJyFjT7nwTy25PAD_SiXAyFjokvoGBJExWPcaPhKfEZGmHKWmsv7i0I7-cf1-sxFBk/exec';
         let appData = null;
+        let loggedInUser = null;
 
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
@@ -593,7 +608,14 @@
             setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 3500);
         }
 
-        window.addEventListener('DOMContentLoaded', () => { fetchBackendData(); });
+        window.addEventListener('DOMContentLoaded', () => { 
+            fetchBackendData(); 
+            const savedUser = sessionStorage.getItem('janataAdminUser');
+            if(savedUser) {
+                loggedInUser = JSON.parse(savedUser);
+                updateAuthUI();
+            }
+        });
 
         async function fetchBackendData() {
             try {
@@ -655,7 +677,7 @@
 
                 const grid = document.getElementById('main-notice-grid');
                 grid.innerHTML = data.notices.map(n => `
-                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 ${String(n.IsImportant) === 'true' ? 'border-red-500' : 'border-primary'} space-y-3">
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 ${String(n.IsImportant) === 'true' ? 'border-red-500' : 'border-primary'} space-y-3 relative group">
                         <div class="flex justify-between items-center text-xs text-gray-500">
                             <span><i class="far fa-calendar-alt"></i> ${n.Date}</span>
                             <span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">${n.Category}</span>
@@ -803,22 +825,303 @@
             const address = document.getElementById('inq-address').value;
 
             try {
-                const res = await fetch(GAS_URL, {
+                await fetch(GAS_URL, {
                     method: 'POST',
                     body: JSON.stringify({ action: 'add_inquiry', inquiry: { name, cls, phone, address } })
                 });
-                const json = await res.json();
-                if(json.success || true) {
-                    showToast('तपाईंको जिज्ञासा सफलतापूर्वक पेश भयो। विद्यालय प्रशासनले सम्पर्क गर्नेछ।');
-                    e.target.reset();
-                }
+                showToast('तपाईंको जिज्ञासा सफलतापूर्वक पेश भयो। विद्यालय प्रशासनले सम्पर्क गर्नेछ।');
+                e.target.reset();
             } catch(err) {
                 showToast('तपाईंको जिज्ञासा सफलतापूर्वक पेश भयो।');
                 e.target.reset();
             }
         }
 
-        // Admin & UI helpers
+        // Auth & Admin Dashboard Controls
+        function openAdminModal() {
+            if(loggedInUser) {
+                openAdminDashboard();
+            } else {
+                document.getElementById('admin-modal').classList.remove('hidden');
+            }
+        }
+        function closeAdminModal() { document.getElementById('admin-modal').classList.add('hidden'); }
+        
+        function openForgotModal() {
+            closeAdminModal();
+            document.getElementById('forgot-modal').classList.remove('hidden');
+        }
+        function closeForgotModal() { document.getElementById('forgot-modal').classList.add('hidden'); }
+
+        async function handleForgotPassword(e) {
+            e.preventDefault();
+            const email = document.getElementById('forgot-email').value;
+            showToast('Sending password reset link...', 'success');
+            try {
+                const res = await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'forgot_password', email: email })
+                });
+                const json = await res.json();
+                if(json.success) {
+                    showToast(json.message);
+                    closeForgotModal();
+                } else {
+                    showToast(json.error || 'Email not found', 'error');
+                }
+            } catch(err) {
+                showToast('Error connecting to server.', 'error');
+            }
+        }
+
+        async function handleAdminLogin(e) {
+            e.preventDefault();
+            const username = document.getElementById('admin-user').value;
+            const password = document.getElementById('admin-pass').value;
+            showToast('Authenticating...', 'success');
+
+            try {
+                const res = await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'admin_login', username, password })
+                });
+                const json = await res.json();
+
+                if(json.success) {
+                    loggedInUser = json.user;
+                    sessionStorage.setItem('janataAdminUser', JSON.stringify(loggedInUser));
+                    closeAdminModal();
+                    updateAuthUI();
+                    openAdminDashboard();
+                    showToast('Admin Login Successful!');
+                } else {
+                    showToast(json.error || 'Invalid credentials!', 'error');
+                }
+            } catch(err) {
+                showToast('Authentication error.', 'error');
+            }
+        }
+
+        function handleLogout() {
+            loggedInUser = null;
+            sessionStorage.removeItem('janataAdminUser');
+            closeAdminDashboard();
+            updateAuthUI();
+            showToast('Logged out successfully.');
+        }
+
+        function updateAuthUI() {
+            const container = document.getElementById('admin-auth-btn-container');
+            if(loggedInUser) {
+                container.innerHTML = `
+                    <button onclick="openAdminDashboard()" class="bg-secondary text-white px-2.5 py-0.5 rounded text-xs font-bold hover:bg-green-700 transition flex items-center gap-1">
+                        <i class="fas fa-user-shield"></i> ${loggedInUser.username}
+                    </button>
+                `;
+            } else {
+                container.innerHTML = `
+                    <button onclick="openAdminModal()" class="bg-accent text-gray-900 px-2.5 py-0.5 rounded text-xs font-bold hover:bg-amber-400 transition flex items-center gap-1">
+                        <i class="fas fa-lock"></i> Admin Login
+                    </button>
+                `;
+            }
+        }
+
+        function openAdminDashboard() {
+            if(!loggedInUser) { openAdminModal(); return; }
+            document.getElementById('current-user-display').textContent = `User: ${loggedInUser.username} (${loggedInUser.role})`;
+            document.getElementById('admin-dashboard-modal').classList.remove('hidden');
+            switchAdminTab('notices');
+        }
+        function closeAdminDashboard() { document.getElementById('admin-dashboard-modal').classList.add('hidden'); }
+
+        function switchAdminTab(tab) {
+            ['notices', 'teachers', 'downloads', 'users'].forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if(btn) btn.className = 'px-4 py-2 text-gray-500 hover:text-primary whitespace-nowrap';
+            });
+            const activeBtn = document.getElementById(`tab-${tab}`);
+            if(activeBtn) activeBtn.className = 'px-4 py-2 border-b-2 border-primary text-primary whitespace-nowrap font-bold';
+
+            const content = document.getElementById('admin-tab-content');
+            if(tab === 'notices') {
+                content.innerHTML = `
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="font-bold text-primary">Manage Notices</h4>
+                        <button onclick="openAddModal('Notices')" class="bg-primary text-white px-3 py-1.5 rounded text-xs font-bold">+ Add Notice</button>
+                    </div>
+                    <div class="overflow-x-auto"><table class="w-full text-xs text-left border">
+                        <thead class="bg-gray-100 border-b"><tr><th class="p-2">Date</th><th class="p-2">Title</th><th class="p-2">Category</th><th class="p-2">Action</th></tr></thead>
+                        <tbody>
+                            ${appData && appData.notices ? appData.notices.map(n => `
+                                <tr class="border-b">
+                                    <td class="p-2">${n.Date}</td>
+                                    <td class="p-2 font-bold">${n.TitleNe}</td>
+                                    <td class="p-2">${n.Category}</td>
+                                    <td class="p-2"><button onclick="deleteItem('Notices', '${n.ID}')" class="text-red-600 hover:underline"><i class="fas fa-trash"></i></button></td>
+                                </tr>
+                            `).join('') : '<tr><td colspan="4" class="p-2 text-center">No notices found</td></tr>'}
+                        </tbody>
+                    </table></div>
+                `;
+            } else if(tab === 'teachers') {
+                content.innerHTML = `
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="font-bold text-primary">Manage Teachers</h4>
+                        <button onclick="openAddModal('Teachers')" class="bg-primary text-white px-3 py-1.5 rounded text-xs font-bold">+ Add Teacher</button>
+                    </div>
+                    <div class="overflow-x-auto"><table class="w-full text-xs text-left border">
+                        <thead class="bg-gray-100 border-b"><tr><th class="p-2">Name</th><th class="p-2">Position</th><th class="p-2">Subject</th><th class="p-2">Action</th></tr></thead>
+                        <tbody>
+                            ${appData && appData.teachers ? appData.teachers.map(t => `
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">${t.Name}</td>
+                                    <td class="p-2">${t.Position}</td>
+                                    <td class="p-2">${t.Subject}</td>
+                                    <td class="p-2"><button onclick="deleteItem('Teachers', '${t.ID}')" class="text-red-600 hover:underline"><i class="fas fa-trash"></i></button></td>
+                                </tr>
+                            `).join('') : '<tr><td colspan="4" class="p-2 text-center">No teachers found</td></tr>'}
+                        </tbody>
+                    </table></div>
+                `;
+            } else if(tab === 'downloads') {
+                content.innerHTML = `
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="font-bold text-primary">Manage Downloads</h4>
+                        <button onclick="openAddModal('Downloads')" class="bg-primary text-white px-3 py-1.5 rounded text-xs font-bold">+ Add File</button>
+                    </div>
+                    <div class="overflow-x-auto"><table class="w-full text-xs text-left border">
+                        <thead class="bg-gray-100 border-b"><tr><th class="p-2">Title</th><th class="p-2">Category</th><th class="p-2">Size</th><th class="p-2">Action</th></tr></thead>
+                        <tbody>
+                            ${appData && appData.downloads ? appData.downloads.map(d => `
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">${d.Title}</td>
+                                    <td class="p-2">${d.Category}</td>
+                                    <td class="p-2">${d.Size}</td>
+                                    <td class="p-2"><button onclick="deleteItem('Downloads', '${d.ID}')" class="text-red-600 hover:underline"><i class="fas fa-trash"></i></button></td>
+                                </tr>
+                            `).join('') : '<tr><td colspan="4" class="p-2 text-center">No downloads found</td></tr>'}
+                        </tbody>
+                    </table></div>
+                `;
+            } else if(tab === 'users') {
+                content.innerHTML = `
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="font-bold text-primary">Manage System Users</h4>
+                        <button onclick="openAddModal('Users')" class="bg-primary text-white px-3 py-1.5 rounded text-xs font-bold">+ Add User</button>
+                    </div>
+                    <div class="overflow-x-auto"><table class="w-full text-xs text-left border">
+                        <thead class="bg-gray-100 border-b"><tr><th class="p-2">Username</th><th class="p-2">Email</th><th class="p-2">Role</th><th class="p-2">Action</th></tr></thead>
+                        <tbody>
+                            ${appData && appData.users ? appData.users.map(u => `
+                                <tr class="border-b">
+                                    <td class="p-2 font-bold">${u.username}</td>
+                                    <td class="p-2">${u.email}</td>
+                                    <td class="p-2 bg-blue-50 text-blue-800">${u.role}</td>
+                                    <td class="p-2"><button onclick="deleteItem('Users', '${u.id}')" class="text-red-600 hover:underline"><i class="fas fa-trash"></i></button></td>
+                                </tr>
+                            `).join('') : '<tr><td colspan="4" class="p-2 text-center">No users found</td></tr>'}
+                        </tbody>
+                    </table></div>
+                `;
+            }
+        }
+
+        function openAddModal(sheetName) {
+            let fieldsHtml = '';
+            if(sheetName === 'Notices') {
+                fieldsHtml = `
+                    <div><label class="block text-xs font-bold mb-1">Title (Nepali):</label><input type="text" id="add-tne" required class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Description (Nepali):</label><textarea id="add-dne" required class="w-full border rounded px-2.5 py-1.5 text-sm"></textarea></div>
+                    <div><label class="block text-xs font-bold mb-1">Category:</label><input type="text" id="add-cat" value="exam" class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Date:</label><input type="text" id="add-date" value="२०८३/०५/१५" class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                `;
+            } else if(sheetName === 'Teachers') {
+                fieldsHtml = `
+                    <div><label class="block text-xs font-bold mb-1">Name:</label><input type="text" id="add-tname" required class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Position:</label><input type="text" id="add-tpos" value="शिक्षक" class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Subject:</label><input type="text" id="add-tsub" class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Qualification:</label><input type="text" id="add-tqual" class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Photo URL:</label><input type="text" id="add-tphoto" class="w-full border rounded px-2.5 py-1.5 text-sm" placeholder="https://..."></div>
+                `;
+            } else if(sheetName === 'Downloads') {
+                fieldsHtml = `
+                    <div><label class="block text-xs font-bold mb-1">Title:</label><input type="text" id="add-dtitle" required class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Size:</label><input type="text" id="add-dsize" value="1.5 MB" class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Category:</label><input type="text" id="add-dcat" value="Form" class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">File URL:</label><input type="text" id="add-durl" value="#" class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                `;
+            } else if(sheetName === 'Users') {
+                fieldsHtml = `
+                    <div><label class="block text-xs font-bold mb-1">Username:</label><input type="text" id="add-uname" required class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Email:</label><input type="email" id="add-uemail" required class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Password:</label><input type="password" id="add-upass" required class="w-full border rounded px-2.5 py-1.5 text-sm"></div>
+                    <div><label class="block text-xs font-bold mb-1">Role:</label><select id="add-urole" class="w-full border rounded px-2.5 py-1.5 text-sm"><option>Super Admin</option><option selected>Editor</option></select></div>
+                `;
+            }
+
+            const modalHtml = `
+                <div id="dynamic-add-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+                    <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 space-y-4">
+                        <div class="flex justify-between items-center border-b pb-2">
+                            <h3 class="font-extrabold text-base text-primary">Add New ${sheetName}</h3>
+                            <button onclick="document.getElementById('dynamic-add-modal').remove()" class="text-gray-500 font-bold text-lg">&times;</button>
+                        </div>
+                        <form onsubmit="submitAddItem(event, '${sheetName}')" class="space-y-3 text-sm">
+                            ${fieldsHtml}
+                            <button type="submit" class="w-full bg-secondary text-white font-bold py-2.5 rounded">Save to Google Sheets</button>
+                        </form>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+        }
+
+        async function submitAddItem(e, sheetName) {
+            e.preventDefault();
+            let item = {};
+            if(sheetName === 'Notices') {
+                item = { titleNe: document.getElementById('add-tne').value, descNe: document.getElementById('add-dne').value, category: document.getElementById('add-cat').value, date: document.getElementById('add-date').value };
+            } else if(sheetName === 'Teachers') {
+                item = { name: document.getElementById('add-tname').value, position: document.getElementById('add-tpos').value, subject: document.getElementById('add-tsub').value, qualification: document.getElementById('add-tqual').value, photo: document.getElementById('add-tphoto').value };
+            } else if(sheetName === 'Downloads') {
+                item = { title: document.getElementById('add-dtitle').value, size: document.getElementById('add-dsize').value, category: document.getElementById('add-dcat').value, url: document.getElementById('add-durl').value };
+            } else if(sheetName === 'Users') {
+                item = { username: document.getElementById('add-uname').value, email: document.getElementById('add-uemail').value, password: document.getElementById('add-upass').value, role: document.getElementById('add-urole').value };
+            }
+
+            showToast('Saving to Google Sheets...', 'success');
+            try {
+                await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'add_item', sheet: sheetName, item })
+                });
+                document.getElementById('dynamic-add-modal').remove();
+                showToast('Successfully added!');
+                fetchBackendData();
+                setTimeout(() => switchAdminTab(sheetName.toLowerCase()), 800);
+            } catch(err) {
+                showToast('Error saving item.', 'error');
+            }
+        }
+
+        async function deleteItem(sheetName, id) {
+            if(!confirm('Are you sure you want to delete this record?')) return;
+            showToast('Deleting from Google Sheets...', 'success');
+            try {
+                await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: 'delete_item', sheet: sheetName, id })
+                });
+                showToast('Successfully deleted!');
+                fetchBackendData();
+                setTimeout(() => switchAdminTab(sheetName.toLowerCase()), 800);
+            } catch(err) {
+                showToast('Error deleting item.', 'error');
+            }
+        }
+
+        // UI Helpers
         function closeNoticePopup() { document.getElementById('notice-popup').classList.add('hidden'); }
         function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
         let currentFontSize = 100;
@@ -829,17 +1132,6 @@
             document.documentElement.style.fontSize = currentFontSize + '%';
         }
         function toggleHighContrast() { document.body.classList.toggle('high-contrast'); }
-        function openAdminModal() { document.getElementById('admin-modal').classList.remove('hidden'); }
-        function closeAdminModal() { document.getElementById('admin-modal').classList.add('hidden'); }
-        function handleAdminLogin(e) {
-            e.preventDefault();
-            if (document.getElementById('admin-user').value === 'admin' && document.getElementById('admin-pass').value === '123456') {
-                closeAdminModal();
-                document.getElementById('admin-dashboard-modal').classList.remove('hidden');
-                showToast('Admin Login Successful!');
-            } else { showToast('गलत पासवर्ड!', 'error'); }
-        }
-        function closeAdminDashboard() { document.getElementById('admin-dashboard-modal').classList.add('hidden'); }
         function setLanguage(lang) { showToast('Language switched to ' + lang.toUpperCase()); }
     </script>
 </body>
